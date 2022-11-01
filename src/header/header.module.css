@@ -1,0 +1,41 @@
+.main {
+    width: 1280px;
+    height: 56px;
+    background-color: #F0F8FF;
+    display: flex;
+    
+}
+
+.LogoMenors {
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+.inputHeader {
+    width: 1054px;
+    margin-left: 32px;
+    height: 36px;
+    background-color: white;
+    border: 1px solid #E1DFE0;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    padding-left: 11px;
+}
+
+.BotaoSubmit {
+    background-color: rgba(140, 86, 194, 1);
+    box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 4px 4px 0px;
+    width: 36px;
+    height: 36px;
+    margin-top: 10px;
+    border-color: none;
+border: none;
+}
+.BotaoSubmit:hover {
+    color: red;
+}

@@ -1,0 +1,25 @@
+.Footerrr {
+  width: 1280px;
+  height: 36px;
+  color: rgba(123, 100, 144, 1);
+  display: flex;
+  align-itens: center;
+  justify: center;
+  position: relative;
+
+
+}
+
+.TextoRodape {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  position: absolute;
+  color: #7b6490;
+  width: 260px;
+  height: 16px;
+  left: calc(50% - 260px / 2 + 18px);
+  top: calc(50% - 16px / 2);
+}
