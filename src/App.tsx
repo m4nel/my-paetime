@@ -4,53 +4,36 @@ import { Body } from "./body";
 import { Footerr } from "./Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Api, {User} from "./api";
 
-type GITHUBResponse = {
-  name: string;
-  bio: string;
-};
 
 function App() {
-  const [Searching, SetSearching] = useState("");
   const [Search, SetSearch] = useState("");
-  const [Name, SetName] = useState("");
-  const [Bio, SetBio] = useState("");
+  const [display, setDisplayValue] = useState("false");
+  const [text, setText] = useState("");
+  const [result, setResult] = useState("");
   const [userName, setUserName] = useState("");
-  const [info, SetInfo] = useState({});
+  const [usersFound, setUsersFound] = useState<User[]>([]);
 
-  useEffect(() => {
-    if (userName) {
-      fetch(
-        `https://api.github.com/users/${userName}
-        `
-      )
-        .then((response) => response.json())
-        .then((response) => {
-          SetSearch(response);
-        });
-    }
-  }),
-    [userName];
+  const handleChange = (e: any) => {
+    setText(e.target.value);
+  };
 
-  const [display, setDisplayValue] = useState("");
-  const [Texto, MudaTexto] = useState("");
+  const updateResult = (r: any) => {
+    setResult(r);
+  };
 
+  const handleSearch = () => {
+     Api.filterUsers(text).then(res => setUsersFound(res.data.items))
+  }
+console.log(usersFound, text)
   return (
     <div className="App">
-      <Header></Header>
-      <div>
-        <input
-          type="text"
-          placeholder="Digite um username"
-          onChange={(e) => setUserName(e.target.value)}
-        />
-        {/* <button onClick={handleSearch}>Buscar</button> */}
-      </div>
-      <div>
-        <ul>
-          {}
-        </ul>
-      </div>
+      <Header handleSearch={() => handleSearch()} handleChange={handleChange} value={text} />
+
+      <>
+        <p>{!display && result}</p>
+      </>
 
       <Footerr></Footerr>
     </div>
